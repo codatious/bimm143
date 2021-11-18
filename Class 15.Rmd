@@ -62,7 +62,7 @@ better approach!!
 control.mean <- rowMeans(control.counts)
 ```
 
-treatment
+treatment 
 
 ```{r}
 treatment.inds <- metadata$dex == 'treated'
