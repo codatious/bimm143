@@ -1,2 +1,2 @@
-# bimm143
-Bioinformatics class at UCSan Diego Fall 2021
+# Bimm143
+Bioinformatics class at UC San Diego, Fall 2021
