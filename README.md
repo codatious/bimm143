@@ -1,2 +1,2 @@
-# Bimm143
-Bioinformatics class at UC San Diego, Fall 2021
+# BIMM 143 Fall 2021
+This is a collection of my bioinformatics work, enjoy
