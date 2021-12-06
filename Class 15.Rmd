@@ -2,7 +2,7 @@
 title: "class 15"
 author: "Cody"
 date: "11/16/2021"
-output: html_document
+output: word_document
 ---
 
 ```{r}
@@ -124,7 +124,7 @@ zero.vals <- which(meancounts[,1:2]==0, arr.ind=TRUE)
 head(zero.vals)
 #removes those from the set
 to.rm <- unique(zero.vals[,1])
-sort(to.rm)
+#sort(to.rm)
 mycounts <- meancounts[-to.rm,]
 head(mycounts)
 ```
