@@ -1,0 +1,86 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+name.of.function <- function(arg1, arg2) {
+  statements
+  return(something)
+}
+
+name (can be almost anything)
+arguments (i.e input to your funciton)
+body (where the work gets done)
+
+```{r}
+add <- function(x, y=1){
+  #sum the input x and y
+  x+y
+}
+```
+1. name : add
+2. arguments: here x and y
+3. body: will return result of last statement
+
+```{r}
+add <- function(x, y=1){
+  #sum the input x and y
+  x+y
+}
+add(x=4)
+add(x=4, y=10)
+add(4,20)
+add(c(1,2,5,10),y=10)
+```
+
+having to write the same thing multiple times -> write a function
+why you would write a funciton:
+- makes the purpose of the code more clear
+- reduce mistakes from copy and paste
+- makes updating code easier
+- reduce duplication and facilitate re-use
+
+start with a working code snippet, simplify, reduce calculation duplication
+consider original code:
+```{r} 
+df$a <- (df$a-min(df$a))/max(df$a)-min(df$a))
+```
+
+simplify to work with a generic vector named "x"
+```{r}
+xmin <- min(x)
+x <- (x-min(x))/(max(x)-min(x))
+
+```
+range function also works for min and max range()
+
+turn it into function/put into body
+put it into console i guess
+```{r}
+rescale <- function(x) {
+  rng <- range(x)
+  (x-rng[1])/(rng[2]-rng[1])
+}
+```
+test on a small example where you know the answer
+```{r}
+rescale(1:10)
+rescale(c(1,4,10,20))
+rescale(c(1, NA, 4, 10,20))
+```
+
+```{r}
+range(c(1,NA,4,10,20), na.rm=TRUE)
+```
+
+fix the NA issue: 
+
+```{r}
+rescale01 <- function(x) {
+  rng <- range(x, na.rm=TRUE)
+  (x-rng[1])/(rng[2]-rng[1])
+}
+rescale01(c(1,NA, 4, 10,20))
+```
+
+can source other R scripts/functions with source() thing, but gotta save it as R script
