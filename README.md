@@ -5,3 +5,4 @@ This is a collection of my bioinformatics work, enjoy
 - Introduction to R 
 - Data visualization with ggplot2  [source] (link)
 - [Class 11](https://github.com/codatious/bimm143/blob/main/class%2011/Class-11.md)  
+- Analysis and visualization of high dimensional datasets [Week 5 Mini Project](https://github.com/codatious/bimm143/blob/main/week5/mini%20project.Rmd)
