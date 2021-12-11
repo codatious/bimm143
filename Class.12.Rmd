@@ -35,9 +35,9 @@ aa <- get.seq("1ake_A")
 aa
 
 #run BLAST from BLAST
-blast <- blast.pdb(aa)
+#blast <- blast.pdb(aa)
 
-plot(blast)
+#plot(blast)
 ```
 
 
