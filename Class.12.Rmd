@@ -1,0 +1,82 @@
+---
+title: "Class 12 Structural Bioinformatics II"
+author: "Cody"
+date: "11/4/2021"
+output: word_document
+---
+
+#comparative analysis of protein structures
+
+using the add on bio3d package
+```{r}
+library(bio3d)
+
+pdb <- read.pdb("1hel")
+pdb
+```
+
+lets use a bioinformatics method called NMA (Normal Mode Analysis) to predict the dynamics (flexibility) of this enzyme
+
+```{r}
+modes <- nma(pdb)
+plot(modes)
+```
+
+Make a "move" of its predicted motion. We often call this a "trajectory"
+
+```{r}
+mktrj(modes, file= "nma.pdb")
+```
+
+![](vmdscene.c12.png)
+
+```{r}
+aa <- get.seq("1ake_A")
+aa
+
+#run BLAST from BLAST
+blast <- blast.pdb(aa)
+
+plot(blast)
+```
+
+
+
+```{r}
+hits <- plot(blast)
+
+head(hits$pdb.id)
+
+# Download releated PDB files
+files <- get.pdb(hits$pdb.id, path="pdbs", split=TRUE, gzip=TRUE)
+```
+
+
+#Align and superpose structures
+multiple structure alignment
+```{r}
+pdbs<- pdbaln(files, fit=TRUE)
+```
+
+
+#PCA
+
+we will use the bio3d pca() function which is designed for protein structure data
+
+```{r}
+# Perform PCA
+pc.xray <- pca(pdbs)
+plot(pc.xray)
+```
+
+Make a trajectory visualization of the motion captured by the first Princial Component
+
+```{r}
+# Visualize first principal component
+pc1 <- mktrj(pc.xray, pc=1, file="pc_1.pdb")
+
+```
+
+![](vmdscene.c12.2.png)
+
+
